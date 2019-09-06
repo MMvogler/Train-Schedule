@@ -10,3 +10,28 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+
+  var dataRef = firebase.database();
+
+  // Button to add trains 
+  $(".btn").on("click", function(event) {
+      event.preventDefault();
+
+    // To grab user input in form
+    var inputTrain = $("input-train").val().trim();
+    var inputDestination = $("input-destination").val().trim();
+    var inputFirstTrain = $("input-first-train").val().trim();
+    var inputFrequency = $("input-frequency").val().trim();
+
+    // Temporarily holds data
+    var newTrain = {
+        train: inputTrain,
+        destination: inputDestination,
+        first: inputFirstTrain,
+        frequency: nputFrequency
+    }
+
+    // Pushes new train data to database
+    database.ref().push(newTrain);
+    
+  });
