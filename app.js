@@ -18,20 +18,40 @@ var firebaseConfig = {
       event.preventDefault();
 
     // To grab user input in form
-    var inputTrain = $("input-train").val().trim();
-    var inputDestination = $("input-destination").val().trim();
-    var inputFirstTrain = $("input-first-train").val().trim();
-    var inputFrequency = $("input-frequency").val().trim();
+    var inputTrain = $("#input-train").val().trim();
+    var inputDestination = $("#input-destination").val().trim();
+    var inputFirstTrain = $("#input-first-train").val().trim();
+    var inputFrequency = $("#input-frequency").val().trim();
 
     // Temporarily holds data
     var newTrain = {
         train: inputTrain,
         destination: inputDestination,
         first: inputFirstTrain,
-        frequency: nputFrequency
+        frequency: inputFrequency
     }
 
     // Pushes new train data to database
     database.ref().push(newTrain);
-    
+
+    // Clears the form once a train is added
+    $("#input-train").val("");
+    $("#input-destination").val("");
+    $("#input-first-train").val("");
+    $("#input-frequency").val("");
+
   });
+
+  // Firebase event that adds trains to the database 
+database.ref().on("child_added", function(childSnapshot){
+
+
+    // Variables to store train information
+    var trainName = childSnapshot.val().train;
+    var destinationName = childSnapshot.val().destination;
+    var firstTrain = childSnapshot.val().first;
+    var trainFrequency = childSnapshot.val().frequency;
+    
+    
+
+})
