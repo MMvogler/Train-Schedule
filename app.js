@@ -52,11 +52,16 @@ database.ref().on("child_added", function(childSnapshot){
     var firstTrain = childSnapshot.val().first;
     var trainFrequency = childSnapshot.val().frequency;
     
-    // Calculate when the next train will arrive 
-    var arrival = "";
+    // Variable for train calculations
+    var minutes = moment().diff(firstTrain,“minutes”)
+    var  minutesAway = minutes % frequency
+    var nexttrain = moment().add(minutesAway,“m”).format(“hh:mm”)
 
-    // Calculate how many minutes until train arrives
-    var minutesAway = "";
+    moment() --> Current Time;
+    moment().diff(firsttrain,“minutes”);
+    moment().add(minutesAway,“m”);
+
+   
 
     //Add a new row for the new train user added
     var newRow = $("<tr>").prepend(
@@ -68,6 +73,6 @@ database.ref().on("child_added", function(childSnapshot){
     );
 
     //Prepend new row to the train table
-    $("#train-table > tbody").append(newRow);
+    $("#train-table > tbody").prepend(newRow);
 
 });
