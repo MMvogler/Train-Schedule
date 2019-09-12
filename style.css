@@ -1,10 +1,32 @@
+body {
+    background: url("dot-grid/dot-grid.png")
+}
+
+
 .jumbotron {
     text-align: center;
+    color: white;
 };
 
-.table {
+
+
+#trains-display {
     margin-top: 100px;
+    margin-left: 100px;
+    width: 940px;
 };
 
+.card-header {
+    background-color: darkblue;
+    color: white;
+}
+
+
+#train-form {
+    margin-top: 100px;
+    margin-left: 100px;
+    width: 940px;
+   
+}
 
 

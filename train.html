@@ -26,48 +26,62 @@
 </head>
 <body>
   
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron jumbotron-fluid" style="background-color: darkblue">
         <div class="container">
         <h1 class="display-4">Train Schedule</h1>
         <p class="lead">Get to where you need to go!</p>
         </div>
     </div>
 
-
+      
       <table class="table table-borderless" id="trains-display">
         <thead>
           <tr>
-            <th scope="col">Train Name</th>
-            <th scope="col">Destination</th>
-            <th scope="col">Frequency (min)</th>
-            <th scope="col">Next Arrvial</th>
-            <th scope="col">Minutes Away</th>
+            <th scope="col" class="title">Train Name</th>
+            <th scope="col" class="title">Destination</th>
+            <th scope="col" class="title">Frequency (min)</th>
+            <th scope="col" class="title">Next Arrvial</th>
+            <th scope="col" class="title">Minutes Away</th>
           </tr>
         </thead>
         <tbody>
         </tbody>
       </table>
 
-      <form id="train-table">
-        <h1 id="formTitle" class="form-text">Add Train</h1>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Train Name</label>
-          <input type="trainName" class="form-control" id="input-train" aria-describedby="emailHelp" >
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Destination</label>
-          <input type="destination" class="form-control" id="input-destination">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">First Train Time (HH:mm - military time)</label>
-            <input type="trainTime" class="form-control" id="input-first-train">
+      
+      <div class="row" id="train-form">
+        <div class="col-md-12">
+          <div class="card mb-4">
+            <div class="card-header" >Add Train</div>
+            <div class="card-body">
+  
+              <form id="train-table">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Train Name</label>
+                  <input type="trainName" class="form-control" id="input-train" aria-describedby="trainHelp" >
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Destination</label>
+                  <input type="destination" class="form-control" id="input-destination">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">First Train Time (HH:mm - military time)</label>
+                    <input type="trainTime" class="form-control" id="input-first-train">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Frequency (min)</label>
+                    <input type="frequency" class="form-control" id="input-frequency">
+                  </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+
+            </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Frequency (min)</label>
-            <input type="frequency" class="form-control" id="input-frequency">
-          </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+        </div>
+      </div>
+  
+    
+  
 
 <script type="text/javascript" src="app.js"> </script>
 

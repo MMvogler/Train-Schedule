@@ -53,44 +53,23 @@ var firebaseConfig = {
     var trainFrequency = childSnapshot.val().frequency;
 
     
-    //  var tFrequency = 3;
-    //  var firstTime = "03:30";
  
      // First Time (pushed back 1 year to make sure it comes before current time)
      var firstTimeConverted = moment(firstTrain, "HH:mm").subtract(1, "years");
-     console.log(firstTimeConverted);
- 
-     // Current Time
-     var currentTime = moment();
-     console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
- 
+  
      // Calculates the difference and puts into minutes
      var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
-     console.log("DIFFERENCE IN TIME: " + diffTime);
- 
+     
      // Remainder 
      var tRemainder = diffTime % trainFrequency;
-     console.log(tRemainder);
- 
+    
      // Minutes until train arrives 
      var minutesAway = trainFrequency - tRemainder;
-     console.log("MINUTES TILL TRAIN: " + minutesAway);
- 
+     
      // Next train's arrival time
-     var arrival = moment().add(minutesAway, "minutes");
-     console.log("ARRIVAL TIME: " + moment(arrival).format("hh:mm"));
+     var arrival = moment().add(minutesAway, "minutes").format('LT');
 
-    // // Variable for train calculations  
-    // var minutes = moment().diff(firstTrain,"minutes");
-    // var minutesAway = minutes % frequency;
-    // var nextTrain = moment().add(minutesAway,"m").format("hh:mm");
-
-    // moment() --> currentTime;
-    // moment().diff(firsttrain,"minutes");
-    // moment().add(minutesAway,"m");
-
-   
-
+     
     //Add a new row for the new train user added
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
