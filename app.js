@@ -53,35 +53,33 @@ var firebaseConfig = {
     var trainFrequency = childSnapshot.val().frequency;
 
     
-     var tFrequency = 3;
-     var firstTime = "03:30";
+    //  var tFrequency = 3;
+    //  var firstTime = "03:30";
  
      // First Time (pushed back 1 year to make sure it comes before current time)
-     var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+     var firstTimeConverted = moment(firstTrain, "HH:mm").subtract(1, "years");
      console.log(firstTimeConverted);
  
      // Current Time
      var currentTime = moment();
      console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
  
-     // Difference between the times
+     // Calculates the difference and puts into minutes
      var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
      console.log("DIFFERENCE IN TIME: " + diffTime);
  
-     // Time apart (remainder)
-     var tRemainder = diffTime % tFrequency;
+     // Remainder 
+     var tRemainder = diffTime % trainFrequency;
      console.log(tRemainder);
  
-     // Minute Until Train
-     var minutesAway = tFrequency - tRemainder;
+     // Minutes until train arrives 
+     var minutesAway = trainFrequency - tRemainder;
      console.log("MINUTES TILL TRAIN: " + minutesAway);
  
-     // Next Train
+     // Next train's arrival time
      var arrival = moment().add(minutesAway, "minutes");
      console.log("ARRIVAL TIME: " + moment(arrival).format("hh:mm"));
- 
- 
-    
+
     // // Variable for train calculations  
     // var minutes = moment().diff(firstTrain,"minutes");
     // var minutesAway = minutes % frequency;
@@ -94,7 +92,7 @@ var firebaseConfig = {
    
 
     //Add a new row for the new train user added
-    var newRow = $("<tr>").prepend(
+    var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(destinationName),
         $("<td>").text(trainFrequency),
@@ -103,7 +101,7 @@ var firebaseConfig = {
         
     );
 
-    //Prepend new row to the train table
-    $("#train-table > tbody").prepend(newRow);
+    //Append new row to the train display
+    $("#trains-display > tbody").append(newRow);
 
 });
