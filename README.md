@@ -7,8 +7,12 @@ This project was done during week 7 of Vanderbilt's Coding Bootcamp.
 ## Technologies Used
 - jQuery
 - Firebase
+- Bootstrap
 
 ## Purpose 
 To familiarize myself with Firebase
+
+### Additional Goals 
+- Additional Bootsrap/CSS styling
 
 
